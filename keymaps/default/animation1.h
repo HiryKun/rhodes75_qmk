@@ -3555,15 +3555,9 @@ static const char PROGMEM fn_anime_lock[FN_ANIM_NUM_FRAMES][512] = {
 	}
 };
 
-
-
-// bool reverse_fn_anim = false;
-// bool played_fn_anim = false;
-// bool first_boot = true;
-
 static void render_anime1(void) {
-	// if(timer_elapsed(anim_timer) > ANIM_FRAME_DURATION) {
-	// 	anim_timer = timer_read();
+	if(timer_elapsed(anim_timer) > ANIM_FRAME_DURATION) {
+		anim_timer = timer_read();
 		if(current_anim_boot == BOOT_ANIM_NUM_FRAMES - 1 && current_anim_fn == 0) {
 			if(host_keyboard_led_state().caps_lock) oled_write_raw_P(main_fn, sizeof(main_fn));
 			else oled_write_raw_P(first_boot_anime[current_anim_boot], 512);
@@ -3580,48 +3574,12 @@ static void render_anime1(void) {
 			++current_anim_boot;
 			return;
 		}
-		// if(!first_boot && reverse_fn_anim){
-		// 	if(host_keyboard_led_state().caps_lock) {
-		// 		oled_write_raw_P(main_fn, sizeof(main_fn));
-		// 		return;
-		// 	}
-		// 	else {
-		// 		oled_write_raw_P(first_boot_anime[current_anim_boot], 512);
-		// 		return;
-		// 	}
-		// }
-		// if(!first_boot && !reverse_fn_anim) {
-		// 	anim_timer = timer_read();
-		// 	if(host_keyboard_led_state().caps_lock) {
-		// 		oled_write_raw_P(fn_anime_lock[current_anim_fn], 512);
-		// 	}
-		// 	else {
-		// 		oled_write_raw_P(fn_anime[current_anim_fn], 512);
-		// 	}
-		// 	if(current_anim_fn == 0) {
-		// 		reverse_fn_anim = true;
-		// 		played_fn_anim = false;
-		// 		return;
-		// 	}
-		// 	current_anim_fn -= 1;
-			
-		// }
-		// if(first_boot) {
-		// 	anim_timer = timer_read();
-		// 	oled_write_raw_P(first_boot_anime[current_anim_boot], 512);
-		// 	if(current_anim_boot == BOOT_ANIM_NUM_FRAMES - 1) {
-		// 		first_boot = false;
-		// 		return;
-		// 	}
-		// 	current_anim_boot += 1;
-		// }
-		
-	// }
+	}
 }
 
 static void render_anime2(void) {
-	// if(timer_elapsed(anim_timer) > ANIM_FRAME_DURATION && current_anim_fn < FN_ANIM_NUM_FRAMES) {
-	// 	anim_timer = timer_read();
+	if(timer_elapsed(anim_timer) > ANIM_FRAME_DURATION && current_anim_fn < FN_ANIM_NUM_FRAMES) {
+		anim_timer = timer_read();
 		if(host_keyboard_led_state().caps_lock) {
 			oled_write_raw_P(fn_anime_lock[current_anim_fn], 512);
 		}
@@ -3630,49 +3588,5 @@ static void render_anime2(void) {
 		}
 		if(current_anim_fn != FN_ANIM_NUM_FRAMES - 1) ++current_anim_fn;;
 		return;
-
-		// if(current_anim_fn == FN_ANIM_NUM_FRAMES - 1) {
-		// 	if(host_keyboard_led_state().caps_lock) {
-		// 		oled_write_raw_P(fn_anime_lock[current_anim_fn], 512);
-		// 	}
-		// 	else {
-		// 		oled_write_raw_P(fn_anime[current_anim_fn], 512);
-		// 	}
-		// 	return;
-		// }
-		// else {
-		// 	if(host_keyboard_led_state().caps_lock) {
-		// 		oled_write_raw_P(fn_anime_lock[current_anim_fn], 512);
-		// 	}
-		// 	else {
-		// 		oled_write_raw_P(fn_anime[current_anim_fn], 512);
-		// 	}
-		// 	++current_anim_fn;
-		// 	return;
-		// }
-
-		// if(played_fn_anim) {
-		// 	if(host_keyboard_led_state().caps_lock) {
-		// 		oled_write_raw_P(fn_anime_lock[current_anim_fn], 512);
-		// 	}
-		// 	else {
-		// 		oled_write_raw_P(fn_anime[current_anim_fn], 512);
-		// 	}
-		// }
-		// else {
-		// 	anim_timer = timer_read();
-		// 	if(host_keyboard_led_state().caps_lock) {
-		// 		oled_write_raw_P(fn_anime_lock[current_anim_fn], 512);
-		// 	}
-		// 	else {
-		// 		oled_write_raw_P(fn_anime[current_anim_fn], 512);
-		// 	}
-		// 	if(current_anim_fn == FN_ANIM_NUM_FRAMES - 1) {
-		// 		reverse_fn_anim = false;
-		// 		played_fn_anim = true;
-		// 		return;
-		// 	}
-		// 	current_anim_fn += 1;
-		// }
-	// }
+	}
 }
