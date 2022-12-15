@@ -1,6 +1,6 @@
 #define FN_ANIM_NUM_FRAMES 11
 #define BOOT_ANIM_NUM_FRAMES 81
-// #define ANIM_FRAME_DURATION 20
+#define ANIM_FRAME_DURATION 20
 uint16_t anim_timer = 0;
 uint8_t  current_anim_fn = 0;
 uint8_t  current_anim_boot = 0;
