@@ -11,11 +11,6 @@
 #define LAYER_STATE_8BIT
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x1D81
-#define PRODUCT_ID      0x002A
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    HiryKun
-#define PRODUCT         RHODES 75
 #define USB_POLLING_INTERVAL_MS 1
 
 /* key matrix size */
@@ -31,7 +26,7 @@
 
 /* RGB lights */
 #define RGB_DI_PIN B8
-#define DRIVER_LED_TOTAL 94
+#define RGB_MATRIX_LED_COUNT 94
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 200
 #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #define RGB_MATRIX_KEYPRESSES

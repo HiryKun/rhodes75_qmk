@@ -1,0 +1,9 @@
+{
+    "keyboard_name": "RHODES 75",
+    "manufacturer": "HiryKun",
+    "usb": {
+        "vid": "0x1D81",
+        "pid": "0x002A",
+        "device_version": "0.0.1"
+    }
+}
